@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="1.9.2" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.44.1" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0-preview1.19506.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0-preview1.19506.2">
       <PrivateAssets>all</PrivateAssets>
@@ -12,10 +16,34 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0-preview1.19506.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0-preview1-19509-03" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cache.Infrastructure\Cache.Infrastructure.csproj" />
+    <ProjectReference Include="..\Cache.Redis.Service\Cache.Redis.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AuthorizationAPICore">
+      <HintPath>..\AuthorizationAPICore\bin\Debug\AuthorizationAPICore.dll</HintPath>
+    </Reference>
+    <Reference Include="AzureKeyStoreService">
+      <HintPath>E:\Dev-ops\PASS-Scantron\server\ScantronCore\Azure\AzureKeyStoreService\bin\Debug\netcoreapp2.2\AzureKeyStoreService.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreUtilities">
+      <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\Core\Utilities\CoreUtilities\bin\Debug\netcoreapp3.0\CoreUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Portal">
+      <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\DataAccess\Portal\bin\Debug\netcoreapp3.0\Portal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 

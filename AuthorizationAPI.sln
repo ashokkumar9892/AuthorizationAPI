@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationAPICore", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationAPI", "AuthorizationAPI\AuthorizationAPI.csproj", "{66DF65C9-F254-45B2-880F-AE5AC78B1B69}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Redis.Service", "Cache.Redis.Service\Cache.Redis.Service.csproj", "{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Infrastructure", "Cache.Infrastructure\Cache.Infrastructure.csproj", "{562ECD44-8BC8-4319-B2B4-B2E294F681D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{66DF65C9-F254-45B2-880F-AE5AC78B1B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DF65C9-F254-45B2-880F-AE5AC78B1B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DF65C9-F254-45B2-880F-AE5AC78B1B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
