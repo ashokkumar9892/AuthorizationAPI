@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\NewFile1.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FirebaseAdmin" Version="1.9.2" />
     <PackageReference Include="Google.Apis.Auth" Version="1.44.1" />
     <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />

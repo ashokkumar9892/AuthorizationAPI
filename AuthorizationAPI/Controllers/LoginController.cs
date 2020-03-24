@@ -24,11 +24,11 @@ namespace AuthorizationAPI.Controllers
         private readonly InstitutionService _institutionService;
         private readonly ClaimsUtils _claimsUtils;
 
-        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService)
+        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService, ClaimsUtils claimsUtils)
         {
             _firebaseUtils = firebaseUtils;
             _institutionService = institutionService;
-           // _claimsUtils = claimsUtils;
+            _claimsUtils = claimsUtils;
         }
 
         [HttpGet]
@@ -47,16 +47,19 @@ namespace AuthorizationAPI.Controllers
                 return BadRequest("InCorrect Login Input");
                 // return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
+
+
             //Student student = db.GetAll<Student>().FirstOrDefault(s => s.Id == studentId);
 
             //Student student = db.GetAll<Student>().FirstOrDefault(s => s.User.Email ==email && password==password);
 
-            //InMemoryRepository repository = new InMemoryRepository();
+            InMemoryRepository repository = new InMemoryRepository();
 
             //var permissionProvider = MyPermissionsProvider.GetPermissionsByEmail(email);
 
-            
+            //if(HTTPContext.Permissions.Contains(AppPermissions.Read_secure) student.secureInfo = await _repo.getStudentSecure(student.id);
+            //if(HTTPContext.Permissions.Contains(AppPermissions.Student.Delete) request.actions.Add(delete); request._links.add(new link(/students/idadsf, method: DELETE);
 
             //string hostname = "localhost:54011";
             var institution = await _institutionService.GetInstitutionByHost(HttpContext.Request.Host.ToString());
@@ -76,12 +79,12 @@ namespace AuthorizationAPI.Controllers
 
             try
             {
-                //userClaims =
-                //    await _claimsUtils.GetClaimsPrincipal(decodedToken, UserAuthType.Admin, institution.GUID);
+                userClaims =
+                    await _claimsUtils.GetClaimsPrincipal(decodedToken, UserAuthType.Admin, institution.GUID);
 
                 // Here to get access and permission
 
-                
+
             }
             catch (Exception ex)
             {

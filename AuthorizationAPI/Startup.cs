@@ -49,7 +49,9 @@ namespace AuthorizationAPI
 
             services.AddScoped<EducationPortalModel.EducationPortalModel, EducationPortalModel.EducationPortalModel>();
 
-            //services.AddScoped<ClaimsUtils, ClaimsUtils>();
+            services.AddScoped<ClaimsUtils, ClaimsUtils>();
+            services.AddScoped<UserService, UserService>();
+            services.AddScoped<UserRepository, UserRepository>();
             services.AddScoped<FirebaseUtils, FirebaseUtils>();
             services.AddScoped<InstitutionService, InstitutionService>();
 
