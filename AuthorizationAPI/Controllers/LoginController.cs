@@ -24,11 +24,11 @@ namespace AuthorizationAPI.Controllers
         private readonly InstitutionService _institutionService;
         private readonly ClaimsUtils _claimsUtils;
 
-        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService, ClaimsUtils claimsUtils)
+        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService)
         {
             _firebaseUtils = firebaseUtils;
             _institutionService = institutionService;
-            _claimsUtils = claimsUtils;
+           // _claimsUtils = claimsUtils;
         }
 
         [HttpGet]
@@ -76,8 +76,8 @@ namespace AuthorizationAPI.Controllers
 
             try
             {
-                userClaims =
-                    await _claimsUtils.GetClaimsPrincipal(decodedToken, UserAuthType.Admin, institution.GUID);
+                //userClaims =
+                //    await _claimsUtils.GetClaimsPrincipal(decodedToken, UserAuthType.Admin, institution.GUID);
 
                 // Here to get access and permission
 

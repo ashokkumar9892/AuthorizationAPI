@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AuthorizationAPI.DAL;
 using AuthorizationAPI.Repositories;
 using AuthorizationAPI.Services;
@@ -15,17 +11,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AuthorizationAPI
 {
-    
+
     public class Startup
     {
         private readonly IWebHostEnvironment _env;
@@ -52,13 +48,14 @@ namespace AuthorizationAPI
             services.AddControllers();
 
             services.AddScoped<EducationPortalModel.EducationPortalModel, EducationPortalModel.EducationPortalModel>();
-            
-            
+
+            //services.AddScoped<ClaimsUtils, ClaimsUtils>();
             services.AddScoped<FirebaseUtils, FirebaseUtils>();
             services.AddScoped<InstitutionService, InstitutionService>();
 
             services.AddScoped<PackageConfigurationService, PackageConfigurationService>();
             services.AddScoped<InstitutionRepository, InstitutionRepository>();
+            
 
             services.AddScoped<ICache, RedisCache>();
 
