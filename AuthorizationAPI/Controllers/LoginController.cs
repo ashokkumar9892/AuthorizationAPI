@@ -22,11 +22,13 @@ namespace AuthorizationAPI.Controllers
         private InMemoryRepository db = new InMemoryRepository();
         private readonly FirebaseUtils _firebaseUtils;
         private readonly InstitutionService _institutionService;
+        private readonly ClaimsUtils _claimsUtils;
 
-        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService)
+        public LoginController(FirebaseUtils firebaseUtils, InstitutionService institutionService, ClaimsUtils claimsUtils)
         {
             _firebaseUtils = firebaseUtils;
             _institutionService = institutionService;
+            _claimsUtils = claimsUtils;
         }
 
         [HttpGet]
@@ -48,19 +50,19 @@ namespace AuthorizationAPI.Controllers
             
             //Student student = db.GetAll<Student>().FirstOrDefault(s => s.Id == studentId);
 
-            Student student = db.GetAll<Student>().FirstOrDefault(s => s.User.Email ==email && password==password);
+            //Student student = db.GetAll<Student>().FirstOrDefault(s => s.User.Email ==email && password==password);
 
-            InMemoryRepository repository = new InMemoryRepository();
+            //InMemoryRepository repository = new InMemoryRepository();
 
-            var permissionProvider = MyPermissionsProvider.GetPermissionsByEmail(email);
+            //var permissionProvider = MyPermissionsProvider.GetPermissionsByEmail(email);
 
-            //var user = repository.GetAll<Student>().Where(u => u.User.Username == student.Name).First();
+            
 
-            string hostname = "localhost:54011";
-            var institution = await _institutionService.GetInstitutionByHost(hostname);
+            //string hostname = "localhost:54011";
+            var institution = await _institutionService.GetInstitutionByHost(HttpContext.Request.Host.ToString());
 
             FirebaseToken decodedToken = null;
-            
+            UserClaims userClaims;
             try
             {
                 decodedToken =
@@ -72,10 +74,20 @@ namespace AuthorizationAPI.Controllers
                 throw;
             }
 
-            //if (student == null)+mm
-            //{
-            //    return HttpNotFound();
-            //}
+            try
+            {
+                userClaims =
+                    await _claimsUtils.GetClaimsPrincipal(decodedToken, UserAuthType.Admin, institution.GUID);
+
+                // Here to get access and permission
+
+                
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(418);
+            }
+           
             return Ok();
         }
 

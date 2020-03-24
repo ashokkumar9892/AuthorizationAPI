@@ -5,11 +5,19 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationAPICore", "AuthorizationAPICore\AuthorizationAPICore.csproj", "{C1059CD4-E04B-4AAD-9BB1-0770086D0235}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationAPI", "AuthorizationAPI\AuthorizationAPI.csproj", "{66DF65C9-F254-45B2-880F-AE5AC78B1B69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationAPI", "AuthorizationAPI\AuthorizationAPI.csproj", "{66DF65C9-F254-45B2-880F-AE5AC78B1B69}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Redis.Service", "Cache.Redis.Service\Cache.Redis.Service.csproj", "{E778F9CE-5479-47A7-BB1C-CFD6C9924C65}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache.Infrastructure", "Cache.Infrastructure\Cache.Infrastructure.csproj", "{562ECD44-8BC8-4319-B2B4-B2E294F681D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationDataAccess", "AuthorizationDataAccess\AuthorizationDataAccess.csproj", "{7B3E29F1-7006-4F75-8E5F-95C15D56432A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AuthorizationDB", "AuthorizationDB\AuthorizationDB.sqlproj", "{0F56DD12-A671-48B7-B63E-A1A905CE6515}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore3.0Authorization", "NetCore3.0Authorization\NetCore3.0Authorization.csproj", "{73901734-C90A-4888-8517-D074120B6636}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore3.0AuthorizationModels", "NetCore3.0AuthorizationModels\NetCore3.0AuthorizationModels.csproj", "{EC2F6F1A-7F0B-4459-AF79-2A5A089F201E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,24 @@ Global
 		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{562ECD44-8BC8-4319-B2B4-B2E294F681D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3E29F1-7006-4F75-8E5F-95C15D56432A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3E29F1-7006-4F75-8E5F-95C15D56432A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3E29F1-7006-4F75-8E5F-95C15D56432A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3E29F1-7006-4F75-8E5F-95C15D56432A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F56DD12-A671-48B7-B63E-A1A905CE6515}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{73901734-C90A-4888-8517-D074120B6636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73901734-C90A-4888-8517-D074120B6636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73901734-C90A-4888-8517-D074120B6636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73901734-C90A-4888-8517-D074120B6636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2F6F1A-7F0B-4459-AF79-2A5A089F201E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2F6F1A-7F0B-4459-AF79-2A5A089F201E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2F6F1A-7F0B-4459-AF79-2A5A089F201E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2F6F1A-7F0B-4459-AF79-2A5A089F201E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthorizationAPI.DAL;
-using AuthorizationAPI.Models;
 using AuthorizationAPI.Repositories;
 using AuthorizationAPI.Services;
 using AuthorizationAPI.Utilities;
+using AuthorizationDataAccess;
 using Cache.Infrastructure;
 using Cache.Redis.Service;
 using FirebaseAdmin;
@@ -163,43 +163,43 @@ namespace AuthorizationAPI
         {
             InMemoryRepository repository = new InMemoryRepository();
 
-            var superUserRole = new ApplicationRole
+            var superUserRole = new Role
             {
                 Id = 1,
-                Role = "Super User",
+                Name = "Super User",
                 Permissions = { AppPermissions.VIEW_STUDENT_PROFILES, AppPermissions.VIEW_OWN_ADMIN_PROFILE, AppPermissions.MANAGE_STUDENT_PROFILE, AppPermissions.VIEW_ADMINISTRATOR_PROFILES, AppPermissions.MANAGE_STUDENT_PROFILE, AppPermissions.MANAGE_PERMISSIONS, AppPermissions.MANAGE_ROLES, AppPermissions.MANAGE_ADMINISTRATOR_PROFILE }
             };
-            var adminManagerRole = new ApplicationRole
+            var adminManagerRole = new Role
             {
                 Id = 2,
-                Role = "Administrators Manager",
+                Name = "Administrators Manager",
                 Permissions = { AppPermissions.VIEW_ADMINISTRATOR_PROFILES, AppPermissions.MANAGE_STUDENT_PROFILE }
             };
-            var adminManagerRole2 = new ApplicationRole
+            var adminManagerRole2 = new Role
             {
                 Id = 5,
-                Role = "Administrators2",
+                Name = "Administrators2",
                 Permissions = { AppPermissions.VIEW_ADMINISTRATOR_PROFILES, AppPermissions.MANAGE_STUDENT_PROFILE, AppPermissions.VIEW_OWN_ADMIN_PROFILE, AppPermissions.MANAGE_STUDENT_PROFILE }
             };
-            var studentsAdministratorRole = new ApplicationRole
+            var studentsAdministratorRole = new Role
             {
                 Id = 3,
-                Role = "District",
+                Name = "District",
                 //Role = "Students Manager",
                 Permissions = { AppPermissions.VIEW_OWN_ADMIN_PROFILE, AppPermissions.MANAGE_STUDENT_PROFILE }
             };
-            var teachingAssistantRole = new ApplicationRole
+            var teachingAssistantRole = new Role
             {
                 Id = 4,
 
-                Role = "School",
+                Name = "School",
                 //Role = "Teaching Assistant",
                 Permissions = { AppPermissions.VIEW_STUDENT_PROFILES, AppPermissions.MANAGE_STUDENT_PROFILE }
             };
-            var studentRole = new ApplicationRole
+            var studentRole = new Role
             {
                 Id = 5,
-                Role = "Class Room",
+                Name = "Class Room",
                 //Role = "Student",
                 Permissions = { AppPermissions.VIEW_OWN_STUDENT_PROFILE }
             };
@@ -212,58 +212,47 @@ namespace AuthorizationAPI
             repository.Add(teachingAssistantRole);
             repository.Add(studentRole);
 
-            var superuser = new ApplicationUser
+            var superuser = new AuthorizationDataAccess.ApplicationUser
             {
                 Id = 1,
-                Username = "superuser"
+               // Username = "superuser"
             };
 
-            var superadmin = new ApplicationUser
+            var superadmin = new AuthorizationDataAccess.ApplicationUser
             {
                 Id = 2,
-                Username = "superadmin"
+                //Username = "superadmin"
 
             };
 
-            var superadmin2 = new ApplicationUser
+            var superadmin2 = new AuthorizationDataAccess.ApplicationUser
             {
                 Id = 5,
-                Username = "superadmin2"
-
             };
 
 
-            var admin = new ApplicationUser
+            var admin = new AuthorizationDataAccess.ApplicationUser
             {
-                Id = 4,
-                Username = "admin"
-
+                Id = 4
             };
 
-            var teacher = new ApplicationUser
+            var teacher = new AuthorizationDataAccess.ApplicationUser
             {
                 Id = 5,
                 Guid = "teacher",
-                Username = "student1",   //This student is TA who can view other student's profiles
-
             };
 
-            var student2 = new ApplicationUser
+            var student2 = new AuthorizationDataAccess.ApplicationUser
             {
                 Id = 6,
-                Email= "ashok-admin@scantron.edu.portal.com",
-                Password= "test1234",
-                Username = "jared"//,
-                //Roles = { studentRole }
-                
-
+                Email= "ashok-admin@scantron.edu.portal.com"
+           
             };
 
-            var student3 = new ApplicationUser
+            var student3 = new AuthorizationDataAccess.ApplicationUser
             {
-                Id = 7,
-                Username = "ashok"
-
+                Id = 7
+                //Username = "ashok"
             };
 
             repository.Add(superuser);
@@ -274,11 +263,7 @@ namespace AuthorizationAPI
             repository.Add(student2);
             repository.Add(student3);
 
-            repository.Add(new Administrator { Id = 1, Name = "Bob Smith", User = superuser });
-            repository.Add(new Administrator { Id = 2, Name = "Paul Smith", User = superadmin });
-            repository.Add(new Administrator { Id = 3, Name = "Paul J. Smith", User = superadmin2 });
-            repository.Add(new Administrator { Id = 4, Name = "Michael Sindhu", User = admin });
-            //repository.Add(new Student { Id = 5, Guid = "AAAA", Name = "Jeff Studants", User = student1 });
+            
             repository.Add(new Student { Id = 6, Guid = "AAAA", Name = "Jared", User = student2 });
             repository.Add(new Student { Id = 7, Guid = "BBBB", Name = "Ashok", User = student3 });
 
@@ -353,7 +338,7 @@ namespace AuthorizationAPI
             var teacherSchoolPermissions = new UserPermissions()
             {
                 InstitutionGuid = "BCD2",
-                Roles = new List<ApplicationRole>(),
+                Roles = new List<Role>(),
                 Permissions = new List<string>(),
                 UserGuid = "teacher"
             };

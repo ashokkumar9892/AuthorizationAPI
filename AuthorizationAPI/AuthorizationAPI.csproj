@@ -9,8 +9,8 @@
     <PackageReference Include="Google.Apis.Auth" Version="1.44.1" />
     <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
     <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.4.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0-preview1.19506.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0-preview1.19506.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthorizationDataAccess\AuthorizationDataAccess.csproj" />
     <ProjectReference Include="..\Cache.Infrastructure\Cache.Infrastructure.csproj" />
     <ProjectReference Include="..\Cache.Redis.Service\Cache.Redis.Service.csproj" />
   </ItemGroup>
@@ -37,6 +38,12 @@
     </Reference>
     <Reference Include="CoreUtilities">
       <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\Core\Utilities\CoreUtilities\bin\Debug\netcoreapp3.0\CoreUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="NetCore3.0Authorization">
+      <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\Core\Authorization\NetCore3.0Authorization\bin\Debug\netcoreapp3.0\NetCore3.0Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="NetCore3.0AuthorizationModels">
+      <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\Core\Authorization\NetCore3.0Authorization\bin\Debug\netcoreapp3.0\NetCore3.0AuthorizationModels.dll</HintPath>
     </Reference>
     <Reference Include="Portal">
       <HintPath>E:\Dev-ops\PASS-Scantron\server\APIs\EducationPortalAdmin\DataAccess\Portal\bin\Debug\netcoreapp3.0\Portal.dll</HintPath>
